@@ -16,4 +16,4 @@
 
 1.  [Открытие и чтение файла, запись в файл](https://github.com/Kutyrevdma/homework_begin/tree/master/homework/begin/task_8)
 
-1.  [Менеджер контекста](https://github.com/Kutyrevdma/omework_begin/tree/master/homework/begin/task_9)
+1.  [Менеджер контекста](https://github.com/Kutyrevdma/homework_begin/tree/master/homework/begin/task_9)
