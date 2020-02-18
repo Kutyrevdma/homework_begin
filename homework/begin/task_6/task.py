@@ -225,7 +225,7 @@ max_weight = max(Animal.list_animal)
 print(f'Самое тяжелое животное - {max_weight.name}')
 print('-----------------------------------')
 
+Бычок = Cattle('Бычок', 100)
 
-
-
-
+Бычок.take_milk(10)
+Бычок.feed()
