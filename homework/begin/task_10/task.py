@@ -40,7 +40,7 @@ def xml_top10():
         sor_spl_items = sorted(item.find('description').text.split())
         for s_s_item in sor_spl_items:
             if len(s_s_item) > 6:
-                all_list.append(s_s_item)
+                all_list.append(s_s_item.lower())
                 count = Counter(all_list)
     print('Top-10 XML')
     pprint(count.most_common(10))
@@ -53,7 +53,7 @@ def json_top10():
             item = items['description'].split()
             for i in item:
                 if len(i) > 6:
-                    all_list.append(i)
+                    all_list.append(i.lower())
                     count = Counter(all_list)
         print('Top-10 JSON')
         pprint(count.most_common(10))
