@@ -1,6 +1,7 @@
 import datetime
 import time
-from advanced.task_01 import salary, people
+from advanced.task_01.application.db import people
+from advanced.task_01.application import salary
 
 Date_Creation = datetime.datetime.today().strftime("%d-%m-%Y")
 Time_Creation = time.strftime("%H.%M.%S")
