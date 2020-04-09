@@ -105,36 +105,36 @@ contact_4 = Contact('Хэнк', 'Шрейдер', '+00000000004', True, 'Аль�
 
 # Создание телефонной книги
 
-PhoneBook = PhoneBook('book')
+book = PhoneBook('book')
 
-PhoneBook.create_contact(contact_1)
-PhoneBook.create_contact(contact_2)
-PhoneBook.create_contact(contact_3)
-PhoneBook.create_contact(contact_4)
+book.create_contact(contact_1)
+book.create_contact(contact_2)
+book.create_contact(contact_3)
+book.create_contact(contact_4)
 
 print('\nВывод контактов из телефонной книги:\n')
-contacts = PhoneBook.get_contacts()
+contacts = book.get_contacts()
 for contact in contacts:
     print(contact)
 
 print('\nУдаление контакта по номеру телефона:\n')
 for contact in contacts:
-    PhoneBook.delete_contact_by_number('+00000000001', )
+    book.delete_contact_by_number('+00000000001', )
 
 print('\nДобавление нового контакта:\n')
-contacts = PhoneBook.get_contacts()
+contacts = book.get_contacts()
 for contact in contacts:
     print(contact)
 
 print('\nПоиск всех избранных номеров:\n')
-favorite_contacts = PhoneBook.get_favorite_contacts()
+favorite_contacts = book.get_favorite_contacts()
 for contact in favorite_contacts:
     print(contact)
 
 print('Поиск контакта по имени и фамилии:')
-found_contacts = PhoneBook.get_contact_by_name('Джесси', 'Пинкман')
+found_contacts = book.get_contact_by_name('Джесси', 'Пинкман')
 for contact in found_contacts:
     print(contact)
 
 print('\nВывод помощи по методам класса PhoneBook')
-PhoneBook.help()
+book.help()
