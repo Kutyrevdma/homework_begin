@@ -45,6 +45,7 @@ class PhoneBook:
 
     def __init__(self, phonebook_name):
         self.phonebook_name = phonebook_name
+        self.work_phonebook = []
 
     @staticmethod
     def help():
@@ -55,35 +56,34 @@ class PhoneBook:
               'def get_contact_by_name(phonebook, first_name, last_name) - Поиск контакта по имени и фамилии\n')
 
     # Вывод контактов из телефонной книги
-    def get_contacts(phonebook):
+    def get_contacts(self):
         contacts = []
-        for contact in phonebook:
+        for contact in self.work_phonebook:
             contacts.append(contact)
         return contacts
 
     # Добавление нового контакта
-    def create_contact(contact, phonebook):
-        phonebook = phonebook.append(contact)
-        return phonebook
+    def create_contact(self, contact):
+        self.work_phonebook.append(contact)
 
     # Удаление контакта по номеру телефона
-    def delete_contact_by_number(phone_number, phonebook):
+    def delete_contact_by_number(self, phone_number):
         if contact.__dict__['phone_number'] == phone_number:
-            phonebook.remove(contact)
-        return phonebook
+            self.work_phonebook.remove(contact)
+        return self.work_phonebook
 
     # Поиск всех избранных номеров
-    def get_favorite_contacts(phonebook):
+    def get_favorite_contacts(self):
         favorite_contacts = []
-        for contact in phonebook:
+        for contact in self.work_phonebook:
             if contact.__dict__['favorite_contact']:
                 favorite_contacts.append(contact)
         return favorite_contacts
 
     # Поиск контакта по имени и фамилии
-    def get_contact_by_name(phonebook, first_name, last_name):
+    def get_contact_by_name(self, first_name, last_name):
         found_contacts = []
-        for contact in phonebook:
+        for contact in self.work_phonebook:
             if contact.__dict__['first_name'] == first_name and (contact.__dict__)['last_name'] == last_name:
                 found_contacts.append(contact)
         return found_contacts
@@ -104,34 +104,35 @@ contact_4 = Contact('Хэнк', 'Шрейдер', '+00000000004', True, 'Аль�
                     'Полицейский', telegram='@Хэнк', email='Хэнк@albuquerque.com')
 
 # Создание телефонной книги
-work_phonebook = []
 
-PhoneBook.create_contact(contact_1, work_phonebook)
-PhoneBook.create_contact(contact_2, work_phonebook)
-PhoneBook.create_contact(contact_3, work_phonebook)
-PhoneBook.create_contact(contact_4, work_phonebook)
+PhoneBook = PhoneBook('book')
+
+PhoneBook.create_contact(contact_1)
+PhoneBook.create_contact(contact_2)
+PhoneBook.create_contact(contact_3)
+PhoneBook.create_contact(contact_4)
 
 print('\nВывод контактов из телефонной книги:\n')
-contacts = PhoneBook.get_contacts(work_phonebook)
+contacts = PhoneBook.get_contacts()
 for contact in contacts:
     print(contact)
 
 print('\nУдаление контакта по номеру телефона:\n')
 for contact in contacts:
-    PhoneBook.delete_contact_by_number('+00000000001', work_phonebook)
+    PhoneBook.delete_contact_by_number('+00000000001', )
 
 print('\nДобавление нового контакта:\n')
-contacts = PhoneBook.get_contacts(work_phonebook)
+contacts = PhoneBook.get_contacts()
 for contact in contacts:
     print(contact)
 
 print('\nПоиск всех избранных номеров:\n')
-favorite_contacts = PhoneBook.get_favorite_contacts(work_phonebook)
+favorite_contacts = PhoneBook.get_favorite_contacts()
 for contact in favorite_contacts:
     print(contact)
 
 print('Поиск контакта по имени и фамилии:')
-found_contacts = PhoneBook.get_contact_by_name(work_phonebook, 'Джесси', 'Пинкман')
+found_contacts = PhoneBook.get_contact_by_name('Джесси', 'Пинкман')
 for contact in found_contacts:
     print(contact)
 
